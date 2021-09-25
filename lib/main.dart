@@ -78,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //child: RaisedButton(onPressed: () {  },
         child: ElevatedButton(onPressed: (){
           //画面遷移のコード
+          //git 変更テスト
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => NextPage()),
