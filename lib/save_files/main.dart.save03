@@ -14,18 +14,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const MyHomePage(title: '',),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/next': (context) => NextPage(),
+      },
     );
   }
 }
@@ -78,14 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
         //child: RaisedButton(onPressed: () {  },
         child: ElevatedButton(onPressed: (){
           //画面遷移のコード
-          //SourceTreeのてすと
-          //再度gitのテスト
-          //vscode & SourceTreeのテスト
-          //vscode & SourceTreeのテスト2
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NextPage()),
-          );
+          Navigator.pushNamed(context, "/next");
         },
           child: const Text('次へ'),
 
