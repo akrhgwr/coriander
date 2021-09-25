@@ -80,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
           //画面遷移のコード
           //SourceTreeのてすと
           //再度gitのテスト
+          //vscode & SourceTreeのテスト
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => NextPage()),
