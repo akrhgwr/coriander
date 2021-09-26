@@ -62,6 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String text = '次へ';
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -76,20 +78,25 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         //child: RaisedButton(onPressed: () {  },
-        child: ElevatedButton(onPressed: (){
-          //画面遷移のコード
-          //SourceTreeのてすと
-          //再度gitのテスト
-          //vscode & SourceTreeのテスト
-          //vscode & SourceTreeのテスト2
-          //vscode & SourceTreeのテスト3
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NextPage()),
-          );
-        },
-          child: const Text('次へ'),
-
+        child: ElevatedButton(
+          child: Text(text),
+          onPressed: () async {
+            print(text);
+            //画面遷移のコード
+            //SourceTreeのてすと
+            //再度gitのテスト
+            //vscode & SourceTreeのテスト
+            //vscode & SourceTreeのテスト2
+            //vscode & SourceTreeのテスト3
+            final result = await Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => NextPage('Value Transfer')),
+            );
+            text = result;
+            print(result);
+            //print(text);
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
