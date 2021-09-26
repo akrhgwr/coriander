@@ -27,7 +27,7 @@ class _NextPageState extends State<NextPage> {
             Text(name),
             Center(
               child: ElevatedButton(
-                child: const Text('戻る'),
+                child: Text('戻る'),
                 onPressed: () {
                   //画面遷移のコード
                   Navigator.pop(context,'Return Value2');

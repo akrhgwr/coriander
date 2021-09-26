@@ -76,27 +76,44 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('Flutter大学'),
       ),
-      body: Center(
-        //child: RaisedButton(onPressed: () {  },
-        child: ElevatedButton(
-          child: Text(text),
-          onPressed: () async {
-            print(text);
-            //画面遷移のコード
-            //SourceTreeのてすと
-            //再度gitのテスト
-            //vscode & SourceTreeのテスト
-            //vscode & SourceTreeのテスト2
-            //vscode & SourceTreeのテスト3
-            final result = await Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => NextPage('Value Transfer')),
-            );
-            text = result;
-            print(result);
-            //print(text);
-          },
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            //const Image(
+            //  image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+            //),
+            //Image.network(
+            //  'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
+            //),
+            //Image.asset('images/owl-2.jpg'),
+            Icon(
+              Icons.arrow_forward,
+              size: 30,
+            ),
+            ElevatedButton(
+              child: Text(text),
+              onPressed: () async {
+                print(text);
+                //画面遷移のコード
+                //SourceTreeのてすと
+                //再度gitのテスト
+                //vscode & SourceTreeのテスト
+                //vscode & SourceTreeのテスト2
+                //vscode & SourceTreeのテスト3
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NextPage('Value Transfer')),
+                );
+                text = result;
+                print(result);
+                //print(text);
+              },
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
