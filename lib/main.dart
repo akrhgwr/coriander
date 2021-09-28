@@ -82,6 +82,32 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Text('文字の装飾',
+              style: TextStyle(fontSize: 50,
+                //color: Colors.green,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+                foreground: Paint()
+                  ..style = PaintingStyle.stroke
+                  ..strokeWidth = 1
+                  ..color = Colors.blue[700]!,
+              ),
+            ),
+            DefaultTextStyle(
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.purple),
+                child: Column(
+                  children: [
+                    Text('のてすと'),
+                    Text('のてすと2'),
+                    Text('のてすと3'),
+                  ],
+                )
+            ),
+            Text('のてすと4'),
+
             //const Image(
             //  image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
             //),
@@ -97,12 +123,6 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text(text),
               onPressed: () async {
                 print(text);
-                //画面遷移のコード
-                //SourceTreeのてすと
-                //再度gitのテスト
-                //vscode & SourceTreeのテスト
-                //vscode & SourceTreeのテスト2
-                //vscode & SourceTreeのテスト3
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
