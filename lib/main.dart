@@ -64,6 +64,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String text = '次へ';
 
+  final myFocusNode = FocusNode();
+
+  String name = '';
+
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -79,62 +85,50 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text('文字の装飾',
-              style: TextStyle(fontSize: 50,
-                //color: Colors.green,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
-                decoration: TextDecoration.underline,
-                foreground: Paint()
-                  ..style = PaintingStyle.stroke
-                  ..strokeWidth = 1
-                  ..color = Colors.blue[700]!,
+            TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: 'First Name'
               ),
-            ),
-            DefaultTextStyle(
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.purple),
-                child: Column(
-                  children: [
-                    Text('のてすと'),
-                    Text('のてすと2'),
-                    Text('のてすと3'),
-                  ],
-                )
-            ),
-            Text('のてすと4'),
-
-            //const Image(
-            //  image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-            //),
-            //Image.network(
-            //  'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg',
-            //),
-            //Image.asset('images/owl-2.jpg'),
-            Icon(
-              Icons.arrow_forward,
-              size: 30,
-            ),
-            ElevatedButton(
-              child: Text(text),
-              onPressed: () async {
-                print(text);
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => NextPage('Value Transfer')),
-                );
-                text = result;
-                print(result);
-                //print(text);
+              onChanged: (text) {
+                name = text;
+                print('First text field: $text');
               },
             ),
+            TextField(
+              controller: myController,
+              focusNode: myFocusNode,
+              decoration: InputDecoration(
+                    hintText: 'Last Name'
+                ),
+              onChanged: (text2) {
+                print('First text field2: $text2');
+              },
+            ),
+            ElevatedButton(
+              //style: raisedButtonStyle,
+              onPressed: ()  {
+                // TODO: ここにフォーカスするためのコード
+                //myFocusNode.requestFocus();
+                print(myController.text);
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        // Retrieve the text the user has entered by using the
+                        // TextEditingController.
+                         content: Text(myController.text),
+                      );
+                    },
+                );
+              },
+              child: Text('サインアップ'),
+            )
+
           ],
         ),
+
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
